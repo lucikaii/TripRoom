@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.scrollable
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -39,6 +41,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -63,18 +68,18 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun TripRoomLogin(){
-    Column (
+fun TripRoomLogin() {
+    Column(
         modifier = Modifier
             .fillMaxSize()
-    ){
+    ) {
 
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.End
-        ){
-            Box (
+        ) {
+            Box(
                 modifier = Modifier
                     .height(40.dp)
                     .width(120.dp)
@@ -82,55 +87,56 @@ fun TripRoomLogin(){
                         color = Color(0xff7d8cc4),
                         shape = RoundedCornerShape(bottomStart = 16.dp)
                     )
-            ){
+            ) {
 
             }
         }
 
-        Column (
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 35.dp),
             horizontalAlignment = Alignment.CenterHorizontally
-        ){
+        ) {
 
-            Card (
+            Card(
                 modifier = Modifier
                     .height(100.dp)
                     .width(100.dp),
                 shape = CircleShape,
                 CardDefaults.cardColors(containerColor = Color(0xff7d8cc4))
 
-            ){
+            ) {
 
             }
         }
-        Column (
+        Column(
             modifier = Modifier
                 .padding(start = 16.dp, top = 30.dp)
-        ){
+        ) {
             Text(
                 text = "Login",
                 color = Color(0xff7d8cc4),
                 fontSize = 48.sp,
-                fontWeight = FontWeight.ExtraBold)
+                fontWeight = FontWeight.ExtraBold
+            )
             Text(
                 text = "Please, sign in to continue",
                 color = Color(0xffA09C9C),
                 fontSize = 14.sp
             )
         }
-        Column (
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp, end = 16.dp, top = 70.dp)
-        ){
+        ) {
 
             OutlinedTextField(
                 value = "",
                 onValueChange = {},
-                label = { 
-                        Text(text = "E-mail")
+                label = {
+                    Text(text = "E-mail")
                 },
                 colors = OutlinedTextFieldDefaults.colors(
                     unfocusedBorderColor = Color(0xff7d8cc4),
@@ -145,7 +151,7 @@ fun TripRoomLogin(){
                 value = "",
                 onValueChange = {},
                 label = {
-                        Text(text = "Senha")
+                    Text(text = "Senha")
                 },
                 colors = OutlinedTextFieldDefaults.colors(
                     unfocusedBorderColor = Color(0xff7d8cc4),
@@ -158,31 +164,33 @@ fun TripRoomLogin(){
             )
         }
 
-        Row (
+        Row(
             modifier = Modifier
                 .padding(top = 30.dp, end = 16.dp)
                 .align(alignment = Alignment.End)
-        ){
+        ) {
             Button(
                 modifier = Modifier
                     .height(50.dp)
                     .width(130.dp),
                 shape = RoundedCornerShape(16.dp),
                 onClick = { /*TODO*/ },
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xff7d8cc4))) {
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xff7d8cc4))
+            ) {
 
                 Text(text = "SIGN IN", color = Color(0xffffffff))
                 Icon(
                     imageVector = Icons.Outlined.KeyboardArrowRight,
-                    contentDescription = "Seta")
+                    contentDescription = "Seta"
+                )
             }
         }
 
-        Row (
+        Row(
             modifier = Modifier
                 .padding(top = 30.dp, end = 16.dp)
                 .align(alignment = Alignment.End)
-        ){
+        ) {
             Text(
                 text = "Don't have an account?",
                 color = Color(0xffA09C9C),
@@ -195,12 +203,12 @@ fun TripRoomLogin(){
                 fontSize = 12.sp
             )
         }
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(),
             verticalAlignment = Alignment.Bottom
-        ){
+        ) {
             Box(
                 modifier = Modifier
                     .height(40.dp)
@@ -211,7 +219,6 @@ fun TripRoomLogin(){
                     )
 
 
-
             )
         }
 
@@ -220,18 +227,18 @@ fun TripRoomLogin(){
 
 
 @Composable
-fun TripRoomSignup(){
+fun TripRoomSignup() {
 
-    Column (
+    Column(
         modifier = Modifier
             .fillMaxSize()
-    ){
+    ) {
 
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.End
-        ){
+        ) {
 
             Box(
                 modifier = Modifier
@@ -244,12 +251,12 @@ fun TripRoomSignup(){
             )
         }
 
-        Column (
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 30.dp),
             horizontalAlignment = Alignment.CenterHorizontally
-        ){
+        ) {
             Text(
                 text = "Sign Up",
                 color = Color(0xff7d8cc4),
@@ -263,20 +270,20 @@ fun TripRoomSignup(){
             )
         }
 
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 25.dp),
             horizontalArrangement = Arrangement.Center
-        ){
+        ) {
 
-            Card (
+            Card(
                 modifier = Modifier
                     .height(100.dp)
                     .width(100.dp),
                 shape = CircleShape,
                 border = BorderStroke(width = 2.dp, color = Color(0xff7d8cc4))
-            ){
+            ) {
                 Icon(
                     imageVector = Icons.Outlined.Person,
                     contentDescription = "foto de perfil",
@@ -289,11 +296,11 @@ fun TripRoomSignup(){
             }
         }
 
-        Column (
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp, end = 16.dp, top = 25.dp)
-        ){
+        ) {
 
             OutlinedTextField(
                 value = "Kainan Braga",
@@ -359,12 +366,12 @@ fun TripRoomSignup(){
             )
         }
 
-        Row (
+        Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 5.dp)
-        ){
+        ) {
             Checkbox(
                 checked = true,
                 onCheckedChange = {},
@@ -372,15 +379,16 @@ fun TripRoomSignup(){
                     checkedColor = Color(0xff7d8cc4),
                     uncheckedColor = Color(0xff7d8cc4),
                     checkmarkColor = Color(0xffffffff)
-                ))
+                )
+            )
             Text(text = "Over 18?")
         }
 
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp, end = 16.dp, top = 15.dp)
-        ){
+        ) {
             Button(
                 onClick = { /*TODO*/ },
                 modifier = Modifier
@@ -395,18 +403,19 @@ fun TripRoomSignup(){
             }
         }
 
-        Row (
+        Row(
             modifier = Modifier
                 .padding(10.dp)
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.End
-        ){
+        ) {
             Text(
                 text = "Already have an account?",
                 fontSize = 12.sp,
                 color = Color(0xffA09C9C)
             )
-            Text(text = "Sign in",
+            Text(
+                text = "Sign in",
                 fontSize = 12.sp,
                 color = Color(0xff7d8cc4),
                 fontWeight = FontWeight.Bold
@@ -418,7 +427,7 @@ fun TripRoomSignup(){
                 .fillMaxWidth()
                 .fillMaxHeight(),
             verticalAlignment = Alignment.Bottom
-        ){
+        ) {
 
             Box(
                 modifier = Modifier
@@ -432,11 +441,82 @@ fun TripRoomSignup(){
         }
 
 
+    }
+}
+
+
+@Composable
+fun TripRoomHome() {
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+
+        Card (
+            shape = RectangleShape
+        ){
+             Image(
+                 painter = painterResource(id = R.drawable.parisfr),
+                 contentDescription = "paris"
+                 )
+        }
+
+        Text(
+            modifier = Modifier
+                .padding(16.dp),
+            text = "Categories",
+            fontSize = 18.sp,
+            fontWeight = FontWeight.ExtraLight)
+
+        LazyRow(){
+
+            item{
+                Button(
+                    modifier = Modifier
+                        .height(60.dp)
+                        .width(110.dp),
+                    shape = RoundedCornerShape(8.dp),
+                    onClick = { /*TODO*/ }
+                ) {
+                    
+                }
+            }
+
+            item{
+                Button(
+                    modifier = Modifier
+                        .height(60.dp)
+                        .width(110.dp),
+                    shape = RoundedCornerShape(8.dp),
+                    onClick = { /*TODO*/ }
+                ) {
+
+                }
+            }
+            item{
+                Button(
+                    modifier = Modifier
+                        .height(60.dp)
+                        .width(110.dp),
+                    shape = RoundedCornerShape(8.dp),
+                    onClick = { /*TODO*/ }
+                ) {
+
+                }
+            }
+
+
+
+
+        }
 
 
 
 
     }
+
+
 }
 
 
@@ -444,6 +524,6 @@ fun TripRoomSignup(){
 @Composable
 fun TripRoomPreview() {
     TripRoomTheme {
-        TripRoomSignup()
+        TripRoomHome()
     }
 }
