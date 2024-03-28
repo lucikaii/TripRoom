@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -38,6 +39,8 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -453,71 +456,203 @@ fun TripRoomHome() {
             .fillMaxSize()
     ) {
 
-        Card (
-            shape = RectangleShape
-        ){
-             Image(
-                 painter = painterResource(id = R.drawable.parisfr),
-                 contentDescription = "paris"
-                 )
-        }
-
-        Text(
+        Column (
             modifier = Modifier
-                .padding(16.dp),
-            text = "Categories",
-            fontSize = 18.sp,
-            fontWeight = FontWeight.ExtraLight)
+                .fillMaxWidth()
+                .height(197.dp)
 
-        LazyRow(){
+        ){
 
-            item{
-                Button(
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(110.dp),
-                    shape = RoundedCornerShape(8.dp),
-                    onClick = { /*TODO*/ }
-                ) {
-                    
-                }
-            }
-
-            item{
-                Button(
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(110.dp),
-                    shape = RoundedCornerShape(8.dp),
-                    onClick = { /*TODO*/ }
-                ) {
-
-                }
-            }
-            item{
-                Button(
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(110.dp),
-                    shape = RoundedCornerShape(8.dp),
-                    onClick = { /*TODO*/ }
-                ) {
-
-                }
-            }
-
-
+            Image(
+                painter = painterResource(id = R.drawable.parisfr),
+                contentDescription = "paisagem",
+                contentScale = ContentScale.Crop)
 
 
         }
+
+        Column (
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ){
+
+            Text(
+                text = "Categories",
+                fontSize = 16.sp,
+                color = Color(0xff565454)
+            )
+
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ){
+
+                item{
+                    Button(
+                        onClick = { /*TODO*/ },
+                        modifier = Modifier
+                            .height(65.dp)
+                            .width(110.dp),
+                        shape = RoundedCornerShape(8.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xff7d8cc4)
+                        )
+                    ) {
+
+                        Column (
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ){
+
+                            Image(
+                                painter = painterResource(id = R.drawable.montanha),
+                                contentDescription = "Montanha",
+                                modifier = Modifier
+                                    .height(32.dp)
+                                    .width(32.dp))
+                            Text(
+                                text = "Mountain",
+                                color = Color(0xffffffff)
+                            )
+                        }
+                    }
+                }
+
+                item{
+                    Button(
+                        onClick = { /*TODO*/ },
+                        modifier = Modifier
+                            .height(65.dp)
+                            .width(110.dp),
+                        shape = RoundedCornerShape(8.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xff7d8cc4)
+                        )
+                    ) {
+
+                        Column (
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ){
+
+                            Image(
+                                painter = painterResource(id = R.drawable.ski),
+                                contentDescription = "Neve",
+                                modifier = Modifier
+                                    .height(32.dp)
+                                    .width(32.dp))
+                            Text(
+                                text = "Snow",
+                                color = Color(0xffffffff))
+                        }
+                    }
+                }
+
+                item{
+                    Button(
+                        onClick = { /*TODO*/ },
+                        modifier = Modifier
+                            .height(65.dp)
+                            .width(110.dp),
+                        shape = RoundedCornerShape(8.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xff7d8cc4)
+                        )
+                    ) {
+
+                        Column (
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ){
+
+                            Image(
+                                painter = painterResource(id = R.drawable.beach),
+                                contentDescription = "Montanha",
+                                modifier = Modifier
+                                    .height(32.dp)
+                                    .width(32.dp))
+                            Text(
+                                text = "Mountain",
+                                color = Color(0xffffffff))
+                        }
+                    }
+                }
+
+                item{
+                    Button(
+                        onClick = { /*TODO*/ },
+                        modifier = Modifier
+                            .height(65.dp)
+                            .width(110.dp),
+                        shape = RoundedCornerShape(8.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xff7d8cc4)
+                        )
+                    ) {
+
+                    }
+                }
+
+
+
+
+
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+            var pesquisa = remember {
+                mutableStateOf("")
+            }
+
+            OutlinedTextField(
+                value = pesquisa.value,
+                onValueChange = {
+                    pesquisa.value = it
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp),
+                shape = RoundedCornerShape(16.dp),
+                placeholder = {
+                    Text(text = "Search your destiny")
+                }
+            )
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
     }
-
-
 }
+
 
 
 @Preview(showBackground = true, showSystemUi = true)
@@ -525,5 +660,6 @@ fun TripRoomHome() {
 fun TripRoomPreview() {
     TripRoomTheme {
         TripRoomHome()
+        //TripRoomSignup()
     }
 }
